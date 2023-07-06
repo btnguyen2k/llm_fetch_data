@@ -8,8 +8,9 @@ on:
   # Allow manually trigger
   workflow_dispatch:
   
-permissions:
-  contents: read
+env:
+  MONGODB_DB: ${{ secrets.MONGODB_DB }}
+  MONGODB_CONN_STR: ${{ secrets.MONGODB_CONN_STR }}
 
 jobs:
   build:
