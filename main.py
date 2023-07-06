@@ -23,8 +23,9 @@ with storage_mongodb.StorageMongoDb(mongo_conn_str, mongo_db) as storage:
             print(f"{sitem.url} - {sitem.title}")
             storage.save(sitem, "dataset_news_title_summary")
             citem = vne.fetch_vne_article(sitem)
-            print(f"\tNum paragraphs: {len(citem.paragraphs)}")
-            storage.save(citem, "dataset_news_title_summary_content")
+            if citem is not None:
+                print(f"\tNum paragraphs: {len(citem.paragraphs)}")
+                storage.save(citem, "dataset_news_title_summary_content")
     else:
         print(f"Usage: python {script_name} <repo> <url>")
         print(f"Example: python {script_name} VNExpress https://vnexpress.net/khoa-hoc")
