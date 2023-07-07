@@ -1,8 +1,9 @@
 import storage_mongodb
-import vne
 from datetime import datetime
 import sys
 import os
+import vne
+import vnn
 
 script_name = sys.argv[0]
 args = sys.argv[1:]
@@ -23,6 +24,16 @@ with storage_mongodb.StorageMongoDb(mongo_conn_str, mongo_db) as storage:
             print(f"{sitem.url} - {sitem.title}")
             storage.save(sitem, "dataset_news_title_summary")
             citem = vne.fetch_vne_article(sitem)
+            if citem is not None:
+                print(f"\tNum paragraphs: {len(citem.paragraphs)}")
+                storage.save(citem, "dataset_news_title_summary_content")
+    elif (repo.upper() == "VNN" or repo.upper() == "VIETNAMNET") and url != "":
+        cat_items = vnn.fetch_vnn_category(url)
+        print(f"Repo: VietnamNet / Time: {datetime.now()} / Category: {url} / Num items: {len(cat_items)}")
+        for sitem in cat_items:
+            print(f"{sitem.url} - {sitem.title}")
+            storage.save(sitem, "dataset_news_title_summary")
+            citem = vnn.fetch_vnn_article(sitem)
             if citem is not None:
                 print(f"\tNum paragraphs: {len(citem.paragraphs)}")
                 storage.save(citem, "dataset_news_title_summary_content")

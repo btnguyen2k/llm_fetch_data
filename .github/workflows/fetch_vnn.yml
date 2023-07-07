@@ -1,9 +1,9 @@
-name: fetch_vne
+name: fetch_vnn
 
 on:
   # Automatically trigger
   schedule:
-  - cron: "11 */6 * * *"
+  - cron: "13 */6 * * *"
   
   # Allow manually trigger
   workflow_dispatch:
@@ -13,7 +13,7 @@ env:
   MONGODB_CONN_STR: ${{ secrets.MONGODB_CONN_STR }}
 
 jobs:
-  vne_thoi_su:
+  vnn_thoi_su:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -26,11 +26,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Fetch VNE category 'Thoi su'
+    - name: Fetch VNN category 'Thoi su'
       run: |
-        python main.py VNExpress https://vnexpress.net/thoi-su
+        python main.py VietnamNet https://vietnamnet.vn/thoi-su
 
-  vne_the_gioi:
+  vnn_kinh_doanh:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -43,11 +43,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Fetch VNE category 'The gioi'
+    - name: Fetch VNN category 'Kinh doanh'
       run: |
-        python main.py VNExpress https://vnexpress.net/the-gioi
+        python main.py VietnamNet https://vietnamnet.vn/kinh-doanh
 
-  vne_kinh_doanh:
+  vnn_the_thao:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -60,11 +60,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Fetch VNE category 'Kinh doanh'
+    - name: Fetch VNN category 'The thao'
       run: |
-        python main.py VNExpress https://vnexpress.net/kinh-doanh
+        python main.py VietnamNet https://vietnamnet.vn/the-thao
 
-  vne_bds:
+  vnn_van_hoa:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -77,11 +77,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Fetch VNE category 'Bat dong san'
+    - name: Fetch VNN category 'Van hoa'
       run: |
-        python main.py VNExpress https://vnexpress.net/bat-dong-san
+        python main.py VietnamNet https://vietnamnet.vn/van-hoa
 
-  vne_khoa_hoc:
+  vnn_giai_tri:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -94,11 +94,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Fetch VNE category 'Khoa hoc'
+    - name: Fetch VNN category 'Giai tri'
       run: |
-        python main.py VNExpress https://vnexpress.net/khoa-hoc
+        python main.py VietnamNet https://vietnamnet.vn/giai-tri
 
-  vne_giai_tri:
+  vnn_the_gioi:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -111,11 +111,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Fetch VNE category 'Giai tri'
+    - name: Fetch VNN category 'The gioi'
       run: |
-        python main.py VNExpress https://vnexpress.net/giai-tri
+        python main.py VietnamNet https://vietnamnet.vn/the-gioi
 
-  vne_the_thao:
+  vnn_doi_song:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -128,11 +128,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Fetch VNE category 'The thao'
+    - name: Fetch VNN category 'Doi song'
       run: |
-        python main.py VNExpress https://vnexpress.net/the-thao
+        python main.py VietnamNet https://vietnamnet.vn/doi-song
 
-  vne_giao_duc:
+  vnn_giao_duc:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -145,11 +145,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Fetch VNE category 'Giao duc'
+    - name: Fetch VNN category 'Giao duc'
       run: |
-        python main.py VNExpress https://vnexpress.net/giao-duc
+        python main.py VietnamNet https://vietnamnet.vn/giao-duc
 
-  vne_suc_khoe:
+  vnn_suc_khoe:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -162,11 +162,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Fetch VNE category 'Suc khoe'
+    - name: Fetch VNN category 'Suc khoe'
       run: |
-        python main.py VNExpress https://vnexpress.net/suc-khoe
+        python main.py VietnamNet https://vietnamnet.vn/suc-khoe
 
-  vne_doi_song:
+  vnn_tttt:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -179,11 +179,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Fetch VNE category 'Doi song'
+    - name: Fetch VNN category 'Thong tin va Truyen thong'
       run: |
-        python main.py VNExpress https://vnexpress.net/doi-song
+        python main.py VietnamNet https://vietnamnet.vn/thong-tin-truyen-thong
 
-  vne_du_lich:
+  vnn_xe:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -196,11 +196,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Fetch VNE category 'Du lich'
+    - name: Fetch VNN category 'Xe'
       run: |
-        python main.py VNExpress https://vnexpress.net/du-lich
+        python main.py VietnamNet https://vietnamnet.vn/oto-xe-may
 
-  vne_so_hoa:
+  vnn_bds:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -213,11 +213,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Fetch VNE category 'So hoa'
+    - name: Fetch VNN category 'Bat dong san'
       run: |
-        python main.py VNExpress https://vnexpress.net/so-hoa
+        python main.py VietnamNet https://vietnamnet.vn/bat-dong-san
 
-  vne_xe:
+  vnn_du_lich:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -230,6 +230,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Fetch VNE category 'O to xe may'
+    - name: Fetch VNN category 'Du lich'
       run: |
-        python main.py VNExpress https://vnexpress.net/oto-xe-may
+        python main.py VietnamNet https://vietnamnet.vn/du-lich
